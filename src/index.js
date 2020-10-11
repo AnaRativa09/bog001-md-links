@@ -17,8 +17,6 @@ const mdLinks = (route, { validate }) => {
         }
         return res;
       });
-    // .catch((e) => { throw e; });
-    // .catch((error) => { return Promise.reject(error) })
   }
   throw Error('Verifica el path, ruta no encontrada');
 };

@@ -1,4 +1,3 @@
-<!-- <p align="center"> <img src="src/images/mdLinks-banner.png" width="450"> </p> -->
 # MD-Links
 
 ## Índice
@@ -13,7 +12,7 @@ Librería que permite extraer y validar links en archivos markdown (.md), obteni
 
 ## 2. Diagrama de flujo
 
-<p align="center"> <img src="./flowchart-mdLinks.jpg" width="600"> </p>
+<p align="center"> <img src="./flowchart-mdLinks.jpg" width="800"> </p>
 
 ## 3. Objetivos de aprendizaje
 

@@ -2,7 +2,6 @@
 
 Librería que permite extraer y validar links en archivos markdown (.md), obteniendo estadísticas de links totales, únicos y rotos.
 
----
 ## 1. CLI
 ### 1.1 Instalación
 

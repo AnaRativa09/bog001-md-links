@@ -18,7 +18,7 @@ describe('getStatsValidate', () => {
     expect(typeof getStatsValidate).toBe('function');
   });
 
-  it('Retorna objeto {total, unique} al analizar arr>obj con links', () => {
+  it('Retorna objeto {total, unique, broken} al analizar arr>obj con links validados', () => {
     expect(getStatsValidate(mocks.mdLinksValidateTrue)).toEqual({ Total: 8, Unique: 7, Broken: 3 });
   });
 });

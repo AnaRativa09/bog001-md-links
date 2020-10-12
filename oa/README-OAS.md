@@ -9,11 +9,11 @@
 * [4. Checklist](#4-checklist)
 
 ## 1. Definición del producto
-Librería que permite obtener información de links en archivos markdown, con estadísticas de links totales, únicos y rotos.
+Librería que permite extraer y validar links en archivos markdown (.md), obteniendo estadísticas de links totales, únicos y rotos.
 
 ## 2. Diagrama de flujo
 
-<p align="center"> <img src="src/images/flowchart-mdLinks.jpg" width="600"> </p>
+<p align="center"> <img src="./flowchart-mdLinks.jpg" width="600"> </p>
 
 ## 3. Objetivos de aprendizaje
 
@@ -59,7 +59,7 @@ Librería que permite obtener información de links en archivos markdown, con es
 * [X] Uso de comandos de git (add | commit | pull | status | push)
 * [X] Manejo de repositorios de GitHub (clone | fork | gh-pages)
 * [X] Colaboración en Github (branches | pull requests)
-* [] Colaboración en Github (tags)
+* [X] Colaboración en Github (tags)
 * [X] Organización en Github (projects | issues | labels | milestones)
 
 ### HTTP
@@ -76,13 +76,13 @@ Librería que permite obtener información de links en archivos markdown, con es
 
 ### General
 
-* [ ] Puede instalarse via `npm install --global @anarativa09/md-links`
+* [X] Puede instalarse via `npm install --global @anarativa09/md-links`
 
 ### `README.md`
 
-* [ ] Un board con el backlog para la implementación de la librería.
-* [ ] Documentación técnica de la librería.
-* [ ] Guía de uso e instalación de la librería
+* [X] Un board con el backlog para la implementación de la librería.
+* [X] Documentación técnica de la librería.
+* [X] Guía de uso e instalación de la librería
 
 ### API `mdLinks(path, opts)`
 

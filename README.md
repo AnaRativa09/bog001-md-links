@@ -1,80 +1,139 @@
 # MD-Links
 
-This library reads and analyzes files in Markdown format, to verify the links they contain and to report some statistics.
+Librería que permite extraer y validar links en archivos markdown (.md), obteniendo estadísticas de links totales, únicos y rotos.
 
-## Installation
+## Índice
 
-```bash
-$ npm install md-validator
-
-$ npm install -g md-validator
-
-$ npm install @tatianatorog/md-validator
-
-```
-
-## CLI
-Get _markdowns links_ with this command:
-
-```bash
-$ npx md-validator <path-to-file> [options]
-```
-
-_For example:_
-
-```bash
-$ npx md-validator ./some/example.md
-
-./some/example.md http://ubu.com/2/3/ Link to something
-./some/example.md https://deco.net/algun-doc.html some file
-./some/example.md http://google.com/ Google
-```
-
-## OPTIONS
-
-##### `-v | --validate`
-
-- **Pass _validate_ option to check & validate all markdown's link(s):**
-
-```bash
-$ npx md-validator ./some/example.md -v
-$ npx md-validator ./some/example.md --validate
-
-./some/example.md http://ubu.com/2/3/ ok 200 Link to something
-./some/example.md https://deco.net/algun-doc.html fail 404 some file
-./some/example.md http://google.com/ ok 301 Google
-```
-
-##### `-s | --stats`
-
-- **Pass _stats_ option to get the total & unique(s) of markdown's link(s):**
-
-```bash
-$ npx md-validator ./some/ -s
-$ npx md-validator ./some/example.md --stats
-
-Total: 3
-Unique: 3
-```
-
-##### `-v -s | --validate --stats`
-
-- **You can pass _both_ options for totals & link's status:**
-
-```bash
-$ npx md-validator some -v -s
-$ npx md-validator some/example.md --validate --stats
-
-Total: 3
-Unique: 3
-Broken: 1
-
-```
+* [1. CLI](1-cli)
+* [2. Módulo JavaScript API](2-módulo-javascript-api)
 
 ---
+## CLI
+### 1.1 Instalación
 
-## Dependencies
-- Chalk
-- Commander
-- Cfonts
-- Axios
+``` js
+$ npm install --g @anarativa09/md-links@0.1.0
+```
+
+### 1.2 Uso
+Recibe como argumento un path/ruta de un archivo ".md" o una carpeta que contenga un archivo ".md". También recibe las opciones a ejecutar.
+
+```js
+md-links <path-to-file> [options]
+```
+- #### Default
+
+  Al ejecutar el comando, imprime un array de objetos con url `(href)`, la referencia dada al enlace `(text)` y  el archivo `(file)` en donde se encontró el link.
+
+  ```js
+
+  $ md-links ./some/example.md
+
+      {
+        href: 'http://algo.com/2/3/',
+        text: 'Link a algo',
+        file: './some/example.md'
+      },
+      {
+        href: 'http://google.com/',
+        text: 'Google',
+        file: './some/example.md'
+      }
+      {
+        href: 'https://nodejs.dev/',
+        text: 'Node JS',
+        file: './some/example.md'
+      }
+  ```
+
+- #### Options
+
+  ##### `--validate` / `-v`
+  El _output_ imprime el status de la respuesta recibida a la petición HTTP a dicha URL y la palabra `OK` o `fail` para determinar su estado.
+
+  ```js
+  $ md-links ./some/example.md --validate
+
+      {
+        href: 'http://algo.com/2/3/',
+        text: 'Link a algo',
+        file: './some/example.md',
+        status: '404',
+        statusText: 'Fail'
+      },
+      {
+        href: 'http://google.com/',
+        text: 'Google',
+        file: './some/example.md'
+        status: '200',
+        statusText: 'OK'
+      }
+      {
+        href: 'https://nodejs.dev/',
+        text: 'Node JS',
+        file: './some/example.md',
+        status: '301',
+        statusText: 'OK'
+      }
+    ```
+
+  ##### `--stats` / `-s`
+  El output imprime un texto con estadísticas básicas sobre los links.
+
+  ```js
+  $ md-links ./some/example.md --stats
+  Total: 3
+  Unique: 3
+  ```
+
+  ##### `-- validate --stats` / `-v -s`
+  El output imprime un texto con estadísticas que necesiten el resultado de la validación.
+
+  ```js
+  $ md-links ./some/example.md --stats
+  Total: 3
+  Unique: 3
+  Broken: 1
+  ```
+---
+## 2. Módulo JavaScript API
+
+### 2.1 Instalación
+
+Desde el terminal:
+``` js
+$ npm install @anarativa09/md-links@0.1.0
+```
+Desde el package.json:
+  ``` js
+  "@anarativa09/md-links": "0.1.0"
+  ```
+
+### 2.2 Uso
+
+```js
+const mdlinks = require('@anarativa09/md-links@0.1.0');
+
+// Default file
+mdLinks("./some/example.md")
+  .then(links => {
+    // => [{ href, text, file }]
+  })
+  .catch(console.error);
+
+
+// Option validate
+mdLinks("./some/example.md", { validate: true })
+  .then(links => {
+    // => [{ href, text, file, status, statusText }]
+  })
+  .catch(console.error);
+
+
+// Default directory
+mdLinks("./some/dir")
+  .then(links => {
+    // => [{ href, text, file }]
+  })
+  .catch(console.error);
+```

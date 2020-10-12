@@ -43,7 +43,7 @@ const dataLinksInfo = [
   },
 ];
 
-// mdLinks
+// mdLinks (validate: true)
 const mdLinksValidateTrue = [
   {
     href: 'https://jestjs.io/es-ES/',
@@ -103,52 +103,6 @@ const mdLinksValidateTrue = [
   },
 ];
 
-// Validar Links
-const dataLinksValidate = [
-  {
-    href: 'http://www.facebook.com',
-    text: 'Facebook Uno',
-    path: '/Users/Ana/Desktop/bog001-md-links/test/docs/README-TEST.md',
-    status: 200,
-    statusText: 'OK',
-  },
-  {
-    href: 'https://es.wikipedia.org/wiki/Markdown',
-    text: 'Markdown',
-    path: '/Users/Ana/Desktop/bog001-md-links/test/docs/README-TEST.md',
-    status: 200,
-    statusText: 'OK',
-  },
-  {
-    href: 'https://nodejs.org/es/',
-    text: 'Node.js',
-    path: '/Users/Ana/Desktop/bog001-md-links/test/docs/README-TEST.md',
-    status: 200,
-    statusText: 'OK',
-  },
-  {
-    href: 'http://www.facebook.com',
-    text: 'Facebook Dos',
-    path: '/Users/Ana/Desktop/bog001-md-links/test/docs/README-TEST.md',
-    status: 200,
-    statusText: 'OK',
-  },
-  {
-    href: 'https://user-images.githubusercontent.com/110297/42118443-b7a5f1f0-7bc8-11e8-96ad-9cc5593715a6.jpg',
-    text: 'md-links',
-    path: '/Users/Ana/Desktop/bog001-md-links/test/docs/README-TEST.md',
-    status: 200,
-    statusText: 'OK',
-  },
-  {
-    href: 'https://platzi.com/clases/progrbasica/',
-    text: 'Link fake',
-    path: '/Users/Ana/Desktop/bog001-md-links/test/docs/README-TEST.md',
-    status: 404,
-    statusText: 'Fail',
-  },
-];
-
 // Fail test
 const failTest = [
   { file: '/Users/Ana/Desktop/bog001-md-links/test/docs/docs-2/card-validation.md', href: 'https://jestjs.io/es-ES/', text: 'Jest' },
@@ -177,7 +131,6 @@ const failTest = [
 // Mock keys
 mocks.dataFilesMd = dataFilesMd;
 mocks.dataLinksInfo = dataLinksInfo;
-mocks.dataLinksValidate = dataLinksValidate;
 mocks.mdLinksValidateTrue = mdLinksValidateTrue;
 mocks.failTest = failTest;
 

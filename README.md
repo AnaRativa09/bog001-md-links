@@ -2,13 +2,8 @@
 
 Librería que permite extraer y validar links en archivos markdown (.md), obteniendo estadísticas de links totales, únicos y rotos.
 
-## Índice
-
-* [1. CLI](1-cli)
-* [2. Módulo JavaScript API](2-módulo-javascript-api)
-
 ---
-## CLI
+## 1. CLI
 ### 1.1 Instalación
 
 ``` js
